@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        /* Estilos generales */
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+        }
+
+        .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 20px;
+        }
+
+        /* Encabezado */
+        .header {
+          background-color: #1a1a1a;
+          color: #fff;
+          padding: 20px;
+        }
+
+        .header h1 {
+          margin: 0;
+          font-size: 32px;
+        }
+
+        /* Navegación */
+        .navbar {
+          background-color: #333;
+          color: #fff;
+          padding: 10px;
+        }
+
+        .navbar ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+
+        .navbar ul li {
+          display: inline-block;
+          margin-right: 10px;
+        }
+
+        .navbar ul li a {
+          color: #fff;
+          text-decoration: none;
+          padding: 5px;
+        }
+
+        /* Sección principal */
+        .main-section {
+          background-color: #f2f2f2;
+          padding: 20px;
+        }
+
+        .main-section h2 {
+          margin: 0;
+          font-size: 24px;
+          margin-bottom: 20px;
+        }
+
+        .button {
+          background-color: #333;
+          color: #fff;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          font-size: 14px;
+        }
+
+        .input-field {
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          font-size: 14px;
+        }
+        /* CSS styles for the audio player */
+        .audio-player {
+          display: flex;
+          align-items: center;
+        }
+
+        .audio-player audio {
+          width: 100%;
+          margin-right: 10px;
+        }
+
+        .audio-player button {
+          background-color: #333;
+          color: #fff;
+          padding: 8px 12px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+
+        .audio-player button:hover {
+          background-color: #555;
+        }
+         .div1 {
+            margin-bottom: 20px;
+        }
+        .first-section {
+          width: 10%;
+          float: left;
+        }
+        .left-section {
+          width: 40%;
+          float: left;
+        }
+
+        .right-section {
+          width: 50%;
+          float: right;
+        }
+
+        /* Additional styles for visualization purposes */
+        .left-section {
+          background-color: ;
+          height: 200px;
+          margin-left: 40px
+        }
+
+        .right-section {
+          background-color: ;
+          height: 200px;
+          margin-right: 40px
+        }
+
+        .small-image {
+          width: 900px;
+          height: auto; /* Auto ajusta la altura proporcionalmente */
+        }
+         li.active{
+          background-color: blue;
+          padding: 3px;
+          text-decoration: none;
+          transition: all .5s;
+          margin-left: 15px;
+        }
+  </style>
+</head>
+        </style>
+
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Home</title>
+        </head>
+    <body>
+    <div class="navbar">
+        <ul>
+            <li><a href="{{ url_for('views.index') }}">Inicio</a></li>
+            <li class="active"><a href="{{ url_for('views.home') }}">Programa</a></li>
+            <li><a href="{{ url_for('views.infoTec') }}">Tecnologías</a></li>
+            <li><a href="{{ url_for('views.infoData') }}">Dataset</a></li>
+        </ul>
+    </div>
+
+    <div class = "left-section">
+        <h1>
+            Conversión de audios a partitura
+        </h1>
+        <p>Por favor, seleccione un archivo de audio</p>
+        <div class="div1">
+            <input class = "input-field" type="file" accept="audio/*" id="audioFileInput" name="audio"/>
+        </div>
+
+        <div class="div1">
+            <audio class = "audio-player" id="audioPlayer" controls></audio><br>
+        </div>
+
+        <div class="div1" class = "audio-player">
+            <button class = "button" onclick="play()"> Reproducir </button>
+        </div>
+
+        <div class="div1" class = "audio-player">
+            <button class = "button" onclick="predict()"> Transcribir </button>
+        </div>
+    </div>
+
+    <div class = "right-section" >
+        <h1 align="center">
+            Transcripción
+        </h1>
+        <img id="miImagen" class = "small-image" src="{{ url_for('static', filename='partitura-1.png') }}" alt="Partitura 1">
+    </div>
+
+    <script>
+        function play(){
+            const audioFileInput = document.getElementById("audioFileInput");
+            const audioPlayer = document.getElementById("audioPlayer");
+            const file = audioFileInput.files[0];
+            const url = URL.createObjectURL(file);
+            audioPlayer.src = url;
+            audioPlayer.autoplay = true;
+        }
+
+        function predict(){
+            const audioFileInput = document.getElementById("audioFileInput");
+            const file = audioFileInput.files[0];
+            const filename = file.name;
+            window.location.replace("/views/predict/" + filename);
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+        }
+
+        .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 20px;
+        }
+
+        .header {
+          background-color: #1a1a1a;
+          color: #fff;
+          padding: 20px;
+        }
+
+        .header h1 {
+          margin: 0;
+          font-size: 32px;
+        }
+
+        .navbar {
+          background-color: #333;
+          color: #fff;
+          padding: 10px;
+        }
+
+        .navbar ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+
+        .navbar ul li {
+          display: inline-block;
+          margin-right: 10px;
+        }
+
+        .navbar ul li a {
+          color: #fff;
+          text-decoration: none;
+          padding: 5px;
+        }
+
+        .main-section {
+          background-color: #f2f2f2;
+          padding: 20px;
+        }
+
+        .main-section h2 {
+          margin: 0;
+          font-size: 24px;
+          margin-bottom: 20px;
+        }
+
+        .button {
+          background-color: #333;
+          color: #fff;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          font-size: 14px;
+        }
+
+        .input-field {
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          font-size: 14px;
+        }
+
+        .audio-player {
+          display: flex;
+          align-items: center;
+        }
+
+        .audio-player audio {
+          width: 100%;
+          margin-right: 10px;
+        }
+
+        .audio-player button {
+          background-color: #333;
+          color: #fff;
+          padding: 8px 12px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+
+        .audio-player button:hover {
+          background-color: #555;
+        }
+         .div1 {
+            margin-bottom: 20px;
+        }
+        .first-section {
+          width: 10%;
+          float: left;
+        }
+        .left-section {
+          width: 40%;
+          float: left;
+        }
+
+        .right-section {
+          width: 50%;
+          float: right;
+        }
+
+        .left-section {
+          background-color: ;
+          height: 200px;
+          margin-left: 40px
+        }
+
+        .right-section {
+          background-color: ;
+          height: 200px;
+          margin-right: 40px
+        }
+
+        .small-image {
+          width: 900px;
+          height: auto; /* Auto ajusta la altura proporcionalmente */
+        }

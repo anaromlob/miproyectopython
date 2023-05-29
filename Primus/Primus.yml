@@ -1,0 +1,40 @@
+name : Primus
+path_to_corpus : ./Primus/
+src_extension : .wav
+GT_extension : .skm
+GT_type : 'kernDirectly'
+user_max_height : 256
+user_max_width : -1
+batch_size : 4
+epochs : 1
+super_epochs : 2000
+create_dictionaries : False
+elements_in_GT:
+  clefs: True
+  keys: True
+  meters: True
+  barlines: True
+
+# CTC_decoding:
+#   type : beam_search
+#   param: 3
+
+architecture:
+  #Convolutional stages:
+  filters : [16, 16]
+  kernel_size : [[3,3], [3,3]]
+  pool_size : [[3,3], [3,3]]
+  pool_strides : [[2, 2], [2, 2]]
+  activations : ['LeakyReLU', 'LeakyReLU']
+  # activations : ['tanh', 'tanh']
+  param_activation : [0.2, 0.2]
+  batch_norm : [True, True]
+  #Recurrent stages:
+  # units : [1536, 1536]
+  units : [256, 256]
+  batch_norm_rec : [True, True]
+  dropout : [0, 0]
+
+
+optimizer : K.optimizers.Adam()
+
